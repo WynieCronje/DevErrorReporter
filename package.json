@@ -1,0 +1,42 @@
+{
+  "name": "@wyniecronje/dev-error-reporter",
+  "version": "1.0.0",
+  "description": "Tools to make errors more visible during development.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WynieCronje/DevErrorReporter.git"
+  },
+  "keywords": [
+    "Dev",
+    "Errors"
+  ],
+  "author": "Wynand Cronje",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WynieCronje/DevErrorReporter/issues"
+  },
+  "homepage": "https://github.com/WynieCronje/DevErrorReporter#readme",
+  "devDependencies": {
+    "@hirez_io/jest-given": "^1.0.3",
+    "@types/jest": "^26.0.13",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "ts-jest": "^26.3.0",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.0.2"
+  }
+}
