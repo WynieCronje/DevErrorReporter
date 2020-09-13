@@ -10,7 +10,7 @@ The error handler ensures that the same error does not get logged twice, once th
 ![Screenshot](for_github/dev_error_handler.png)
 
 ### Demo
-https://dev-error-reporter.stackblitz.io/
+https://stackblitz.com/edit/dev-error-reporter?file=src/app/global-error-handler.ts
 
 ### Install
 
