@@ -1,6 +1,6 @@
 {
   "name": "dev-error-reporter",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Tools to make errors more visible during development.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
