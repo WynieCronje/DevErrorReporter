@@ -20,6 +20,9 @@ export class DevErrorHandler {
     if (this.errors.some((x) => x === error.stack)) {
       return;
     }
+    if (document.getElementsByTagName(this.config.appendToElement).length === 0) {
+      throw Error(`Could not find element with name '${this.config.appendToElement}'`);
+    }
 
     this.errors.push(error.stack);
     const $errorMsg = document.createElement('div');
@@ -32,15 +35,16 @@ export class DevErrorHandler {
     $errorMsg.style.bottom = '0';
     $errorMsg.style.fontSize = '11px';
     $errorMsg.style.fontFamily = 'calibri';
-    $errorMsg.style.padding = '1rem';
+    $errorMsg.style.padding = '10px';
     $errorMsg.style.zIndex = `10000${this.errors.length + 1}`;
     $errorMsg.style.color = 'white';
+    $errorMsg.style.boxSizing = 'border-box';
     $errorMsg.style.backgroundColor = 'rgba(0,0,0,0.8)';
     $errorMsg.innerHTML = ` <p style="
-                    font-size: 1rem;
+                    font-size: 16px;
                     font-weight: bold;
                     color:#ff6c37;">PLEASE CHECK YOUR CONSOLE!!!!</p>
-                    <pre style="color:white">${error.stack}</pre>`;
+                    <pre style="color:white; max-width:100%; overflow-y:auto">${error.stack}</pre>`;
 
     const $errorClose = document.createElement('a');
     $errorClose.href = 'javascript:void(0)';
@@ -50,7 +54,7 @@ export class DevErrorHandler {
     $errorClose.style.top = '0';
     $errorClose.style.fontSize = '16px';
     $errorClose.style.fontFamily = 'calibri';
-    $errorClose.style.padding = '1rem';
+    $errorClose.style.padding = '8px';
     $errorClose.style.color = 'white';
     $errorClose.style.backgroundColor = '#ff6c37';
     $errorClose.innerHTML = '&times;';
