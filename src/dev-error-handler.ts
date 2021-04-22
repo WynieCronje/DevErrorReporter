@@ -29,7 +29,10 @@ export class DevErrorHandler {
 
     $errorMsg.className += 'msg-backdrop';
 
+    $errorMsg.style.overflowY = 'auto';
+    $errorMsg.style.maxHeight = '90vh';
     $errorMsg.style.maxWidth = '100%';
+    $errorMsg.style.overflowX = 'auto';
     $errorMsg.style.position = 'fixed';
     $errorMsg.style.left = '0';
     $errorMsg.style.bottom = '0';
